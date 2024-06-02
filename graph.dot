@@ -1,0 +1,23 @@
+strict digraph G {
+  to [ label="to" ];
+  seek [ label="seek" ];
+  out [ label="out" ];
+  new [ label="new" ];
+  life [ label="life" ];
+  and [ label="and" ];
+  worlds [ label="worlds" ];
+  explore [ label="explore" ];
+  strange [ label="strange" ];
+  to -> seek [ label="1.0" ];
+  seek -> out [ label="1.0" ];
+  out -> new [ label="1.0" ];
+  new -> life [ label="1.0" ];
+  life -> and [ label="1.0" ];
+  and -> new [ label="1.0" ];
+  new -> worlds [ label="1.0" ];
+  worlds -> to [ label="1.0" ];
+  to -> explore [ label="1.0" ];
+  explore -> strange [ label="1.0" ];
+  strange -> new [ label="1.0" ];
+  new -> to [ label="1.0" ];
+}

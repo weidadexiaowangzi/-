@@ -1,13 +1,13 @@
 package org.example;
 
+import javax.swing.*;
 import java.io.*;
-import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) {
         String filePath = "E:\\study\\sofr-project\\lab1\\input.txt"; // 替换为你的文件路径
-        Graph graph = new Graph();
+        GraphV graphV = new GraphV();
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
             String line;
@@ -18,7 +18,7 @@ public class Main {
                 for (String word : words) {
                     if (!word.isEmpty()) {
                         if (previousWord != null) {
-                            graph.addEdge(previousWord, word);
+                            graphV.addEdge(previousWord, word);
                         }
                         previousWord = word;
                     }
@@ -29,12 +29,25 @@ public class Main {
             e.printStackTrace();
         }
 
-        // 调用各个功能进行测试
-        graph.showDirectedGraph();
-        System.out.println(graph.queryBridgeWords("explore", "new"));
-        System.out.println(graph.generateNewText("seek to explore new and exciting synergies"));
-        System.out.println(graph.calcShortestPath("to", "and"));
-        System.out.println(graph.randomWalk());
+
+        graphV.showDirectedGraph();
+
+        System.out.println(graphV.queryBridgeWords("explore", "new"));
+//        System.out.println(graphV.queryBridgeWords("to", "strange"));
+//        System.out.println(graphV.queryBridgeWords("new", "and"));
+
+        System.out.println(graphV.generateNewText("seek to explore new and exciting synergies"));
+        System.out.println(graphV.generateNewText("to explore new worlds"));
+        System.out.println(graphV.generateNewText("new and civilizations"	));
+
+        System.out.println(graphV.calcShortestPath("to", "and"));
+        System.out.println(graphV.calcShortestPath("seek", "new"));
+        System.out.println(graphV.calcShortestPath(	"explore", "civilizations"));
+
+        System.out.println(graphV.randomWalk());
+        System.out.println(graphV.randomWalk());
+        System.out.println(graphV.randomWalk());
     }
+
 
 }
